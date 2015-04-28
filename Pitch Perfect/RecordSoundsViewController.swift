@@ -52,7 +52,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
 
-
         // Record audio
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord, error: nil)
 
@@ -63,9 +62,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
     }
 
+    // Trigger segue, or handle error
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
-
-        // Trigger segue, or handle error
         if (flag) {
             recordingInProgress.text = "Tap to Record"
             recordedAudio = RecordedAudio(path: recorder.url, title: recorder.url.lastPathComponent!)
@@ -76,9 +74,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
 
+    // Pass recorded file to next VC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        // Pass recorded file to next VC
         if (segue.identifier == "stopRecording") {
             let playSoundsVC: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
             let data = sender as! RecordedAudio
