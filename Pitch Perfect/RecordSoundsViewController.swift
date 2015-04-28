@@ -18,10 +18,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var resumeButton: UIButton!
-
     @IBOutlet weak var recordingInProgress: UILabel!
-
-
 
     var audioRecorder: AVAudioRecorder!
     var recordedAudio: RecordedAudio!
@@ -44,13 +41,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         resumeButton.hidden = false
         resumeButton.enabled = false
 
-
         // Set path and name for saved audio file
         // Course suggests using date stamp to mark recordings
         // but there is no way shown to access earlier recordings
         // so reuse name in order to keep inaccessible recordings
         // from piling up
-
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
 
         let recordingName = "audio.wav"
@@ -59,7 +54,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
 
         // Record audio
-
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord, error: nil)
 
         audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
@@ -107,7 +101,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     // recording is in progress/paused before attempting
     // to pause/resume. 
     // TODO: unhack this, implement proper checks
-
     @IBAction func pauseRecording(sender: UIButton) {
         stopButton.enabled = false
         resumeButton.enabled = true
@@ -122,7 +115,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         pauseButton.enabled = true
         recordingInProgress.text = "Recording in Progress"
         audioRecorder.record()
-
     }
+    
 }
 

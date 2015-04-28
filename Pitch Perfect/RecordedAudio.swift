@@ -8,11 +8,10 @@
 
 import Foundation
 
-
 // RecordedAudio class to store the recorded file
 // Does not need to inherit from NSObject
-
 class RecordedAudio {
+    
     var filePathUrl: NSURL!
     var title: String!
 
@@ -20,6 +19,6 @@ class RecordedAudio {
     init (path: NSURL, title: String) {
         self.filePathUrl = path
         self.title = title
-
     }
+    
 }

@@ -32,13 +32,11 @@ class PlaySoundsViewController:UIViewController {
         super.viewDidLoad()
     }
 
-
     // Abstracted function for bunny and snail buttons
     func playAudioAtRate(given_rate : Float) {
         stopAudioPlayback()
         audioPlayer.rate = given_rate
         audioPlayer.play()
-
     }
 
     // Abstracted function for vader and chipmunk buttons
@@ -62,7 +60,6 @@ class PlaySoundsViewController:UIViewController {
         audioPlayerNode.play()
     }
 
-
     // Abstracted function for parrot and reverb buttons
     func playEchoAndReverb(delay: NSTimeInterval, vol: Float) {
         stopAudioPlayback()
@@ -73,8 +70,7 @@ class PlaySoundsViewController:UIViewController {
         echoPlayer.playAtTime(play_delay)
     }
 
-    // One liners corresponding to each button
-
+    // One liners corresponding to each effect and button
     @IBAction func playAudioSlowly(sender: UIButton) {
         playAudioAtRate(0.5)
     }
@@ -92,11 +88,11 @@ class PlaySoundsViewController:UIViewController {
     }
 
     @IBAction func playAudioEcho(sender: UIButton) {
-        playEchoAndReverb(0.5, vol: 0.5)
+        playEchoAndReverb(0.5, vol: 0.4)
     }
 
     @IBAction func playAudioReverb(sender: UIButton) {
-        playEchoAndReverb(0.15, vol: 0.8)
+        playEchoAndReverb(0.175, vol: 1.0)
     }
 
     // Triggered by stop button as well as called without 
