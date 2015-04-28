@@ -2,8 +2,8 @@
 //  PlaySoundsViewController.swift
 //  Pitch Perfect
 //
-//  Created by Reg Wms on 12/5/14.
-//  Copyright (c) 2014 Reg Wms. All rights reserved.
+//  Created by Surajit A Bose on 12/5/14.
+//  Copyright (c) 2014 Surajit A Bose. All rights reserved.
 //
 
 // Views are optimized for iPhone 6 and iPhone 6+.
@@ -28,6 +28,8 @@ class PlaySoundsViewController:UIViewController {
         audioEngine = AVAudioEngine()
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
         AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+
+        super.viewDidLoad()
     }
 
 
@@ -94,7 +96,7 @@ class PlaySoundsViewController:UIViewController {
     }
 
     @IBAction func playAudioReverb(sender: UIButton) {
-        playEchoAndReverb(0.15, vol: 0.6)
+        playEchoAndReverb(0.15, vol: 0.8)
     }
 
     // Triggered by stop button as well as called without 

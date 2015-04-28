@@ -2,8 +2,8 @@
 //  RecordSoundsViewController.swift
 //  Pitch Perfect
 //
-//  Created by Reg Wms on 11/9/14.
-//  Copyright (c) 2014 Reg Wms. All rights reserved.
+//  Created by Surajit A Bose on 11/9/14.
+//  Copyright (c) 2014 Surajit A Bose. All rights reserved.
 //
 
 import UIKit
@@ -31,6 +31,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         pauseButton.hidden = true
         resumeButton.hidden = true
         recordingInProgress.text = "Tap to Record"
+
+        super.viewWillAppear(animated)
     }
 
     @IBAction func recordAudio(sender: UIButton) {
@@ -71,6 +73,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
         // Trigger segue, or handle error
         if (flag) {
+            recordingInProgress.text = "Tap to Record"
             recordedAudio = RecordedAudio(path: recorder.url, title: recorder.url.lastPathComponent!)
             self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
         }
@@ -92,7 +95,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func stopRecordingAudio(sender: UIButton) {
         recordButton.enabled = true
         stopButton.hidden = true
-        recordingInProgress.text = "Tap to Record"
+        resumeButton.hidden = true
+        pauseButton.hidden = true
 
         audioRecorder.stop()
         AVAudioSession.sharedInstance().setActive(false, error: nil)

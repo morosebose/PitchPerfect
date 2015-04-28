@@ -2,8 +2,8 @@
 //  RecordedAudio.swift
 //  Pitch Perfect
 //
-//  Created by Reg Wms on 12/8/14.
-//  Copyright (c) 2014 Reg Wms. All rights reserved.
+//  Created by Surajit A Bose on 12/8/14.
+//  Copyright (c) 2014 Surajit A Bose. All rights reserved.
 //
 
 import Foundation
